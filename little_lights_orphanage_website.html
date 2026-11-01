@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="A safe home, education, care and a brighter future for 100 children.">
+<title>Little Lights Foundation | A Home Full of Hope</title>
+<style>
+:root{
+  --ink:#20312d;--deep:#173d35;--green:#397b65;--sage:#dcebe1;--cream:#fbf7ef;
+  --gold:#e8b85c;--coral:#e98e72;--white:#fff;--muted:#687873;
+  --shadow:0 20px 55px rgba(25,60,50,.13);--radius:24px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--ink);line-height:1.65;background:#fff}
+a{text-decoration:none;color:inherit}
+button,input,select,textarea{font:inherit}
+.container{width:min(1160px,92%);margin:auto}
+.topline{background:var(--deep);color:#eaf2ec;font-size:.84rem;padding:9px 0}
+.topline .container{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.94);backdrop-filter:blur(14px);box-shadow:0 3px 20px rgba(0,0,0,.045)}
+nav{height:78px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.logo{display:flex;align-items:center;gap:11px;font-weight:850;font-size:1.18rem;letter-spacing:-.5px;color:var(--deep)}
+.logo-icon{width:43px;height:43px;border-radius:15px;background:var(--sage);display:grid;place-items:center;color:var(--green);font-size:1.4rem}
+.links{display:flex;align-items:center;gap:25px;font-size:.92rem;font-weight:650;color:#53635d}
+.links a:hover{color:var(--green)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;border:0;border-radius:999px;padding:13px 22px;background:var(--green);color:white;font-weight:750;cursor:pointer;transition:.22s}
+.btn:hover{background:var(--deep);transform:translateY(-2px)}
+.btn.gold{background:var(--gold);color:#263a32}.btn.gold:hover{background:#f1ca7c}
+.btn.light{background:#fff;color:var(--deep);border:1px solid #d8e4dc}.btn.light:hover{background:var(--sage)}
+.menu{display:none;border:0;background:var(--sage);color:var(--deep);padding:10px 13px;border-radius:12px;font-size:1.2rem}
+.hero{background:var(--cream);position:relative;overflow:hidden;padding:76px 0 86px}
+.hero:after{content:"";position:absolute;width:390px;height:390px;border-radius:50%;background:#f4e9d4;right:-180px;top:-170px;opacity:.65}
+.hero-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:55px;align-items:center;position:relative;z-index:1}
+.kicker{display:inline-flex;align-items:center;gap:9px;color:var(--green);font-size:.78rem;letter-spacing:1.7px;text-transform:uppercase;font-weight:850;margin-bottom:17px}
+.kicker:before{content:"";width:27px;height:2px;background:var(--coral)}
+h1{font-size:clamp(2.8rem,5.5vw,5rem);line-height:1.03;letter-spacing:-3px;color:var(--deep);margin-bottom:22px}
+h1 em{font-style:normal;color:var(--green)}
+.lead{font-size:1.08rem;color:var(--muted);max-width:540px;margin-bottom:29px}
+.actions{display:flex;gap:12px;flex-wrap:wrap}
+.hero-visual{position:relative;padding:0 18px 28px 0}
+.hero-visual img{width:100%;height:485px;object-fit:cover;border-radius:48% 48% 24px 24px;box-shadow:var(--shadow)}
+.float-card{position:absolute;left:-22px;bottom:0;background:#fff;padding:17px 20px;border-radius:18px;box-shadow:var(--shadow);max-width:235px}
+.float-card b{display:block;color:var(--deep);font-size:1.1rem}.float-card span{font-size:.87rem;color:var(--muted)}
+.float-number{position:absolute;right:0;top:24px;background:var(--gold);color:var(--deep);border-radius:17px;padding:14px 18px;text-align:center;box-shadow:var(--shadow)}
+.float-number strong{display:block;font-size:1.8rem;line-height:1.1}.float-number small{font-weight:750}
+section{padding:88px 0}
+.section-title{text-align:center;max-width:700px;margin:0 auto 45px}
+.section-title .kicker{justify-content:center}
+h2{font-size:clamp(2rem,3.5vw,2.85rem);line-height:1.13;letter-spacing:-1.2px;color:var(--deep);margin-bottom:14px}
+.section-title p{color:var(--muted)}
+.story-grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:60px;align-items:center}
+.story-image{position:relative}.story-image img{height:440px;border-radius:var(--radius);box-shadow:var(--shadow)}
+.image-label{position:absolute;right:-16px;bottom:24px;background:var(--gold);padding:13px 18px;border-radius:15px;font-weight:800;color:var(--deep)}
+.story-copy h2{font-size:2.55rem}.story-copy p{color:var(--muted);margin:15px 0}
+.checks{display:grid;grid-template-columns:1fr 1fr;gap:13px;margin-top:23px}
+.check{background:var(--cream);padding:14px;border-radius:14px;font-weight:700;color:var(--deep);font-size:.92rem}
+.check span{color:var(--green);margin-right:7px}
+.stats{background:var(--deep);color:white;padding:38px 0}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;text-align:center}
+.stat{border-right:1px solid rgba(255,255,255,.18);padding:8px}
+.stat:last-child{border:0}
+.stat strong{display:block;color:var(--gold);font-size:2.65rem;line-height:1.2}
+.stat span{color:#d4e2da;font-size:.92rem}
+.programs{background:var(--cream)}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.card{background:#fff;border-radius:var(--radius);overflow:hidden;box-shadow:0 10px 30px rgba(25,60,50,.06);transition:.25s}
+.card:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
+.card img{width:100%;height:205px;object-fit:cover}
+.card-body{padding:23px}
+.icon{width:45px;height:45px;border-radius:14px;background:var(--sage);display:grid;place-items:center;font-size:1.35rem;margin-bottom:14px}
+.card h3{color:var(--deep);font-size:1.2rem;margin-bottom:8px}
+.card p{color:var(--muted);font-size:.94rem}
+.promise{display:grid;grid-template-columns:1fr 1fr;gap:45px;align-items:center}
+.promise-panel{background:var(--sage);border-radius:var(--radius);padding:35px}
+.promise-panel h3{font-size:1.5rem;color:var(--deep);margin-bottom:12px}
+.promise-panel p{color:#52665e}
+.promise-list{display:grid;gap:17px}
+.promise-item{display:flex;gap:14px;align-items:flex-start}
+.promise-item .icon{flex:0 0 45px;margin:0}
+.promise-item b{display:block;color:var(--deep);margin-bottom:3px}
+.promise-item p{color:var(--muted);font-size:.93rem}
+.donate{background:#f6eee0}
+.donate-box{max-width:850px;margin:auto;background:white;border-radius:28px;padding:38px;text-align:center;box-shadow:var(--shadow)}
+.donate-box h2{font-size:2.35rem}
+.donate-box>p{color:var(--muted);max-width:610px;margin:0 auto 23px}
+.amounts{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin:20px 0 24px}
+.amount{border:1.5px solid #d8e4dc;background:#fff;color:var(--deep);border-radius:999px;padding:11px 20px;font-weight:800;cursor:pointer}
+.amount.active,.amount:hover{background:var(--sage);border-color:var(--green)}
+.small-note{font-size:.82rem!important;margin:15px auto 0!important}
+.volunteer-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:55px;align-items:start}
+.volunteer-copy h2{font-size:2.5rem}.volunteer-copy p{color:var(--muted);margin:13px 0}
+.volunteer-copy img{width:100%;height:230px;object-fit:cover;border-radius:var(--radius);margin-top:20px}
+form{background:var(--cream);padding:29px;border-radius:var(--radius)}
+form h3{font-size:1.35rem;color:var(--deep);margin-bottom:18px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+label{display:block;color:var(--deep);font-size:.88rem;font-weight:750;margin-bottom:6px}
+input,select,textarea{width:100%;padding:13px 14px;border:1px solid #d8e2dc;border-radius:11px;background:#fff;margin-bottom:15px;outline:none}
+input:focus,select:focus,textarea:focus{border-color:var(--green);box-shadow:0 0 0 3px rgba(57,123,101,.1)}
+textarea{min-height:100px;resize:vertical}
+.contact{background:var(--sage)}
+.contact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:17px}
+.contact-card{background:white;border-radius:18px;padding:23px;text-align:center}
+.contact-card .icon{margin:0 auto 12px}
+.contact-card h3{color:var(--deep);font-size:1rem;margin-bottom:5px}
+.contact-card p{color:var(--muted);font-size:.9rem;overflow-wrap:anywhere}
+footer{background:#102d29;color:#dce8e1;padding:35px 0}
+.footer-row{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+footer .logo{color:white}footer p{font-size:.87rem;color:#b4c7bd}
+.footer-links{display:flex;gap:18px;font-size:.9rem}
+.footer-links a:hover{color:var(--gold)}
+#toast{position:fixed;z-index:100;left:50%;bottom:22px;transform:translate(-50%,20px);opacity:0;pointer-events:none;background:var(--deep);color:#fff;border-radius:12px;padding:13px 20px;transition:.25s;max-width:90%;text-align:center}
+#toast.show{opacity:1;transform:translate(-50%,0)}
+@media(max-width:850px){
+ .menu{display:block}.links{display:none;position:absolute;top:78px;left:0;right:0;background:#fff;padding:20px 4%;box-shadow:0 12px 20px #0001;flex-direction:column;align-items:stretch}
+ .links.open{display:flex}.hero-grid,.story-grid,.promise,.volunteer-grid{grid-template-columns:1fr}
+ .hero{padding:55px 0 70px}.hero-visual{max-width:590px;width:100%;margin:0 auto}.hero-visual img{height:390px}
+ .story-image img{height:350px}.cards{grid-template-columns:1fr 1fr}
+}
+@media(max-width:560px){
+ section{padding:65px 0}.topline .container{justify-content:center;text-align:center}
+ h1{letter-spacing:-1.8px}.hero-visual img{height:310px}.float-card{left:0}
+ .cards,.contact-grid{grid-template-columns:1fr}.checks{grid-template-columns:1fr}
+ .stats-grid{grid-template-columns:1fr 1fr}.stat:nth-child(2){border:0}
+ .form-row{grid-template-columns:1fr;gap:0}form,.donate-box{padding:23px 18px}
+ .story-copy h2,.volunteer-copy h2{font-size:2.1rem}.footer-row{align-items:flex-start;flex-direction:column}
+}
+</style>
+</head>
+<body>
+<!-- TEMPLATE NOTE: Replace the organization name, contact details, address, images and donation instructions before publishing. -->
+<div class="topline"><div class="container"><span>♡ A safe place to grow. A brighter future to dream.</span><span>Care • Education • Hope</span></div></div>
+<header>
+  <nav class="container">
+    <a class="logo" href="#home"><span class="logo-icon">✿</span><span>Little Lights Foundation</span></a>
+    <div class="links" id="links">
+      <a href="#home">Home</a><a href="#about">Our Story</a><a href="#programs">What We Do</a><a href="#impact">Our Impact</a><a href="#contact">Contact</a>
+      <a class="btn" href="#donate">Support Our Children</a>
+    </div>
+    <button class="menu" id="menu" aria-label="Open menu" aria-expanded="false">☰</button>
+  </nav>
+</header>
+
+<main>
+<section class="hero" id="home">
+ <div class="container hero-grid">
+  <div>
+   <div class="kicker">Together, we make hope grow</div>
+   <h1>100 young hearts.<br>One home. <em>Endless possibilities.</em></h1>
+   <p class="lead">Every child deserves to feel safe, loved, and full of hope. We are building a caring home where 100 children can learn, play, discover their talents, and dream about tomorrow.</p>
+   <div class="actions"><a class="btn" href="#donate">♡ Help make a difference</a><a class="btn light" href="#about">Discover our story</a></div>
+  </div>
+  <div class="hero-visual">
+   <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=1200&q=85" alt="Children learning together">
+   <div class="float-number"><strong>100</strong><small>CHILDREN IN OUR CARE</small></div>
+   <div class="float-card"><b>Every child matters.</b><span>Love, support, and opportunity can change a lifetime.</span></div>
+  </div>
+ </div>
+</section>
+
+<section id="about">
+ <div class="container story-grid">
+  <div class="story-image"><img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?auto=format&fit=crop&w=1000&q=85" alt="A child smiling outdoors"><div class="image-label">A family built on care ♡</div></div>
+  <div class="story-copy">
+   <div class="kicker">Who we are</div>
+   <h2>More than a shelter. A place to belong.</h2>
+   <p>Our home is dedicated to caring for 100 children and helping each one feel valued, supported, and encouraged. We believe a loving environment and the right opportunities can help every child build a brighter future.</p>
+   <p>From everyday care to education and life skills, we aim to nurture each child's confidence, curiosity, and sense of possibility.</p>
+   <div class="checks"><div class="check"><span>✓</span> Love and protection</div><div class="check"><span>✓</span> Learning opportunities</div><div class="check"><span>✓</span> Health and wellbeing</div><div class="check"><span>✓</span> Respect and dignity</div></div>
+  </div>
+ </div>
+</section>
+
+<div class="stats" id="impact"><div class="container stats-grid">
+ <div class="stat"><strong>100</strong><span>Children in our care</span></div>
+ <div class="stat"><strong>1</strong><span>Community of hope</span></div>
+ <div class="stat"><strong>24/7</strong><span>Commitment to care</span></div>
+ <div class="stat"><strong>∞</strong><span>Dreams worth supporting</span></div>
+</div></div>
+
+<section class="programs" id="programs">
+ <div class="container">
+  <div class="section-title"><div class="kicker">How we support children</div><h2>Helping little lights shine brighter</h2><p>Children need more than the essentials. They need encouragement, joyful experiences, and the chance to discover what they can become.</p></div>
+  <div class="cards">
+   <article class="card"><img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=850&q=85" alt="School classroom"><div class="card-body"><div class="icon">📚</div><h3>Education & Learning</h3><p>School support, books, stationery, tutoring, and opportunities to develop knowledge and practical skills.</p></div></article>
+   <article class="card"><img src="https://images.unsplash.com/photo-1542810634-71277d95dcbb?auto=format&fit=crop&w=850&q=85" alt="Children sharing a caring moment"><div class="card-body"><div class="icon">♡</div><h3>Health & Daily Care</h3><p>Nutritious meals, healthcare access, hygiene, emotional support, and a safe daily routine.</p></div></article>
+   <article class="card"><img src="https://images.unsplash.com/photo-1472162072942-cd5147eb3902?auto=format&fit=crop&w=850&q=85" alt="Children playing outdoors"><div class="card-body"><div class="icon">⚽</div><h3>Play & Creativity</h3><p>Sports, art, reading, celebrations, and activities that build friendships and confidence.</p></div></article>
+  </div>
+ </div>
+</section>
+
+<section>
+ <div class="container promise">
+  <div class="promise-panel"><div class="kicker">Our promise</div><h3>Every child deserves to be seen as a person, not a number.</h3><p>We believe in protecting children's privacy, listening to their voices, respecting their dignity, and creating opportunities for them to grow at their own pace.</p></div>
+  <div class="promise-list">
+   <div class="promise-item"><div class="icon">🏡</div><div><b>A safe and caring environment</b><p>A stable place where children can feel secure, respected, and supported.</p></div></div>
+   <div class="promise-item"><div class="icon">🌱</div><div><b>Room to learn and grow</b><p>Education, life skills, creativity, and encouragement to explore their interests.</p></div></div>
+   <div class="promise-item"><div class="icon">🤝</div><div><b>A community that cares</b><p>Responsible volunteers and supporters helping us create meaningful opportunities.</p></div></div>
+  </div>
+ </div>
+</section>
+
+<section class="donate" id="donate">
+ <div class="container">
+  <div class="section-title"><div class="kicker">Be part of their story</div><h2>Your kindness can make tomorrow brighter.</h2><p>Your support can help provide food, education, clothing, healthcare, and everyday essentials for the 100 children in our care.</p></div>
+  <div class="donate-box">
+   <h2>Give hope. Make a difference.</h2>
+   <p>Select an amount to include in your donation enquiry. Our team can share the organization's verified donation details and process.</p>
+   <div class="amounts">
+    <button type="button" class="amount active" data-amount="1000">Rs. 1,000</button>
+    <button type="button" class="amount" data-amount="2500">Rs. 2,500</button>
+    <button type="button" class="amount" data-amount="5000">Rs. 5,000</button>
+    <button type="button" class="amount" data-amount="10000">Rs. 10,000</button>
+   </div>
+   <a class="btn" id="donateLink" href="mailto:YOUR-EMAIL@example.com">Enquire about donating →</a>
+   <p class="small-note">This website demo does not accept or process online payments. Add verified bank/payment details or a secure payment provider before launch.</p>
+  </div>
+ </div>
+</section>
+
+<section id="volunteer">
+ <div class="container volunteer-grid">
+  <div class="volunteer-copy">
+   <div class="kicker">Give your time</div><h2>Be a part of something beautiful.</h2>
+   <p>Share your time, skills, and kindness. Volunteers may be able to support learning, activities, events, and approved community projects.</p>
+   <p>Submit an enquiry and our team can follow up. All volunteer roles should follow the organization's child safeguarding and background-check procedures.</p>
+   <img src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?auto=format&fit=crop&w=1000&q=85" alt="Community volunteers working together">
+  </div>
+  <form id="volunteerForm">
+   <h3>Volunteer interest form</h3>
+   <div class="form-row"><div><label for="name">Full name</label><input id="name" name="name" required placeholder="Your full name"></div><div><label for="email">Email address</label><input id="email" name="email" type="email" required placeholder="you@example.com"></div></div>
+   <label for="phone">Phone number</label><input id="phone" name="phone" type="tel" placeholder="+92 ...">
+   <label for="interest">How would you like to help?</label><select id="interest" name="interest" required><option value="">Select an area</option><option>Education and tutoring</option><option>Events and activities</option><option>Fundraising</option><option>Skills and workshops</option><option>Other</option></select>
+   <label for="message">Message</label><textarea id="message" name="message" placeholder="Tell us a little about yourself..."></textarea>
+   <button class="btn" type="submit">Send volunteer enquiry →</button>
+   <p style="font-size:.8rem;color:var(--muted);margin-top:12px">Your email app will open with this enquiry. This demo does not save form submissions.</p>
+  </form>
+ </div>
+</section>
+
+<section class="contact" id="contact">
+ <div class="container">
+  <div class="section-title"><div class="kicker">Let's connect</div><h2>We would love to hear from you.</h2><p>Reach out about donations, volunteering, partnerships, or visiting our organization.</p></div>
+  <div class="contact-grid">
+   <div class="contact-card"><div class="icon">✉️</div><h3>Email</h3><p>YOUR-EMAIL@example.com</p></div>
+   <div class="contact-card"><div class="icon">📞</div><h3>Phone</h3><p>+92 300 0000000</p></div>
+   <div class="contact-card"><div class="icon">📍</div><h3>Address</h3><p>Your orphanage address, Pakistan</p></div>
+  </div>
+ </div>
+</section>
+</main>
+
+<footer><div class="container footer-row">
+ <a class="logo" href="#home"><span class="logo-icon">✿</span> Little Lights Foundation</a>
+ <p>© <span id="year"></span> Little Lights Foundation. Built with hope and care.</p>
+ <div class="footer-links"><a href="#about">Our Story</a><a href="#donate">Donate</a><a href="#contact">Contact</a></div>
+</div></footer>
+<div id="toast" role="status" aria-live="polite"></div>
+
+<script>
+const ORGANIZATION_EMAIL = "YOUR-EMAIL@example.com"; // Replace with your real email address.
+document.getElementById("year").textContent = new Date().getFullYear();
+
+// Responsive mobile navigation
+const menu = document.getElementById("menu");
+const links = document.getElementById("links");
+menu.addEventListener("click", () => {
+  const isOpen = links.classList.toggle("open");
+  menu.setAttribute("aria-expanded", String(isOpen));
+  menu.textContent = isOpen ? "✕" : "☰";
+});
+links.querySelectorAll("a").forEach(link => link.addEventListener("click", () => {
+  links.classList.remove("open");
+  menu.setAttribute("aria-expanded", "false");
+  menu.textContent = "☰";
+}));
+
+// Donation amount selection creates an email enquiry; no payment is collected.
+let selectedAmount = "1000";
+const donationLink = document.getElementById("donateLink");
+function updateDonationLink() {
+  donationLink.href = "mailto:" + ORGANIZATION_EMAIL +
+    "?subject=" + encodeURIComponent("Donation enquiry - Little Lights Foundation") +
+    "&body=" + encodeURIComponent("I would like to enquire about donating Rs. " + selectedAmount + ". Please share the official donation process.");
+}
+document.querySelectorAll(".amount").forEach(button => {
+  button.addEventListener("click", () => {
+    document.querySelectorAll(".amount").forEach(item => item.classList.remove("active"));
+    button.classList.add("active");
+    selectedAmount = button.dataset.amount;
+    updateDonationLink();
+  });
+});
+updateDonationLink();
+
+// Volunteer enquiry opens the visitor's email application.
+document.getElementById("volunteerForm").addEventListener("submit", event => {
+  event.preventDefault();
+  const form = event.currentTarget;
+  if (!form.reportValidity()) return;
+  const data = new FormData(form);
+  const body = [
+    "Volunteer enquiry - Little Lights Foundation",
+    "Name: " + data.get("name"),
+    "Email: " + data.get("email"),
+    "Phone: " + (data.get("phone") || "Not provided"),
+    "Area of interest: " + data.get("interest"),
+    "Message: " + (data.get("message") || "Not provided")
+  ].join("\\n");
+  window.location.href = "mailto:" + ORGANIZATION_EMAIL +
+    "?subject=" + encodeURIComponent("Volunteer enquiry") +
+    "&body=" + encodeURIComponent(body);
+  showToast("Your email app should open with your volunteer enquiry.");
+});
+
+function showToast(message) {
+  const toast = document.getElementById("toast");
+  toast.textContent = message;
+  toast.classList.add("show");
+  window.setTimeout(() => toast.classList.remove("show"), 3500);
+}
+</script>
+</body>
+</html>
